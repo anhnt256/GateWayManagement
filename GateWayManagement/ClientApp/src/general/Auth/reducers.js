@@ -18,8 +18,8 @@ const INIT_STATE = {
   alertMessage: '',
   showMessage: false,
   initURL: '',
-  authUser: 12,
-  userName: 'con mèo',
+  authUser: parseInt(localStorage.getItem('user_id')),
+  userName: null,
 };
 
 
