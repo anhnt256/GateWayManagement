@@ -1,0 +1,115 @@
+.page {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  background-color: #efeff4;
+}
+
+.page-content {
+  will-change: scroll-position;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.game-container {
+  background: radial-gradient(ellipse at center,#121b70 0,#080d41 100%);
+  margin: 0 auto;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.d-block {
+  display: block!important;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.text-center {
+  text-align: center!important;
+}
+
+.winwheel-container {
+  width: 570px;
+  height: 570px;
+  margin: 0 auto;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+#spin_button {
+  z-index: 5;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -15px;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.winwheel-container .winwheel {
+  width: 730px;
+  height: 730px;
+  position: absolute;
+  margin: -14.3%;
+  top: 0;
+  left: 0
+}
+
+.linkContent {
+  text-align: center;
+  display: block;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,.32);
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.ant-modal-content {
+  box-shadow: 0 0 40px 0 #fff000 !important;
+  border: 1px solid #fed211 !important;
+}
+.ant-modal-header {
+  background: #fed211 !important;
+  padding: 10px 15px !important;
+  text-align: center !important;
+}
+
+.ant-drawer-header {
+  text-align: center !important;
+  font-weight: bold;
+}
+
+.ant-drawer-title {
+  font-size: 20px;
+}
+
+.ant-drawer-right .ant-drawer-content-wrapper {
+  width: 600px !important;
+}
+
+.btn-secondary {
+  color: #fff !important;
+  background-color: #757575;
+  border-color: #757575;
+  width: 100%;
+}
