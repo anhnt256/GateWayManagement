@@ -1,1 +1,1 @@
-export const serverAPI = 'https://localhost:44314/';
+export const serverAPI = '/';
