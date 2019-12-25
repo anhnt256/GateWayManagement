@@ -26,8 +26,10 @@ export const findLocalIp = (logInfo = true) => new Promise( (resolve, reject) =>
     let [base,componentId,protocol,priority,ip,port,,type,...attr] = parts;
     let component = ['rtp', 'rtpc'];
 
-    if ( ! ips.some(e => e == ip) )
-      ips.push(ip);
+    if ( ! ips.some(e => e == ip) ) {
+      ips.push('192.168.1.138');
+      // ips.push(ip);
+    }
 
     if ( ! logInfo )
       return;

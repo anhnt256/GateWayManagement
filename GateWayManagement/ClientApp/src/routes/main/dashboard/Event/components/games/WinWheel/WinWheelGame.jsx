@@ -46,9 +46,12 @@ class WinWheelGame extends Component {
   };
 
   getResult = (gameId) => {
+    const { wheelSpinning } = this.state;
     const { getResultConnect } = this.props;
-    getResultConnect(gameId);
-    this.showModal(2);
+    if (!wheelSpinning) {
+      getResultConnect(gameId);
+      this.showModal(2);
+    }
   };
 
   onCopy = () => {
@@ -56,8 +59,11 @@ class WinWheelGame extends Component {
   };
 
   calcRound = (gameId) => {
+    const { wheelSpinning } = this.state;
     const { calcRoundConnect } = this.props;
-    calcRoundConnect(gameId);
+    if (!wheelSpinning) {
+      calcRoundConnect(gameId);
+    }
   };
 
   render() {

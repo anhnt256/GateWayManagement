@@ -64,10 +64,11 @@ class WinWheel extends Component {
   };
 
   onSpin = async () => {
-    const { round, wheelSpinning } = this.props;
+    const { round, wheelSpinning, updateState } = this.props;
     if (!wheelSpinning && round > 0) {
       const { calcPrize } = this.props;
-      this.setState({ wheelSpinning: true, soundStatus: Sound.status.PLAYING });
+      updateState(true);
+      this.setState({ soundStatus: Sound.status.PLAYING });
       theWheel.startAnimation();
       let result = await calcPrize();
       setTimeout(function() {

@@ -145,17 +145,17 @@ namespace GateWayManagement.Controllers
                 });
             }
 
-            var game = _gateWayUserGameMapService.CheckExist(12, gameModel.gameId).Result;
+            var game = _gateWayUserGameMapService.CheckExist(userId, gameModel.gameId).Result;
             if (game is null)
             {
-                var totalAmount = _paymentService.GetTotalPaymentByUserId(12);
-                var usedRound = _gateWayEventResultService.GetResult(gameModel.gameId, 12).Count;
+                var totalAmount = _paymentService.GetTotalPaymentByUserId(userId);
+                var usedRound = _gateWayEventResultService.GetResult(gameModel.gameId, userId).Count;
                 var totalRound = totalAmount / 50000;
                 var currentRound = totalRound - usedRound;
 
                 UserGameMap userGameMap = new UserGameMap();
                 userGameMap.gameId = gameModel.gameId;
-                userGameMap.userId = 12;
+                userGameMap.userId = userId;
                 userGameMap.round = int.Parse(currentRound.ToString());
                 var eventResult = _gateWayUserGameMapService.InsertUserGameMap(userGameMap);
 
