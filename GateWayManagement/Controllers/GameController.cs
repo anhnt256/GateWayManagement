@@ -150,8 +150,8 @@ namespace GateWayManagement.Controllers
             {
                 var totalAmount = _paymentService.GetTotalPaymentByUserId(userId);
                 var usedRound = _gateWayEventResultService.GetResult(gameModel.gameId, userId).Count;
-                var totalRound = totalAmount / 50000;
-                var currentRound = totalRound - usedRound;
+                int totalRound = (int)totalAmount / 50000;
+                int currentRound = totalRound - usedRound;
 
                 UserGameMap userGameMap = new UserGameMap();
                 userGameMap.gameId = gameModel.gameId;
@@ -225,8 +225,8 @@ namespace GateWayManagement.Controllers
             }
             var totalAmount = _paymentService.GetTotalPaymentByUserId(userId);
             var usedRound = _gateWayEventResultService.GetResult(gameModel.gameId, userId).Count;
-            var totalRound = totalAmount / 50000;
-            var currentRound = totalRound - usedRound;
+            int totalRound = (int)totalAmount / 50000;
+            int currentRound = totalRound - usedRound;
             _gateWayUserGameMapService.UpdateRound(userId, gameModel.gameId, int.Parse(currentRound.ToString()));
 
             return Json(new ResponseModel()

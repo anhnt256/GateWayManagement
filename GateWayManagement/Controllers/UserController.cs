@@ -43,7 +43,7 @@ namespace GateWayManagement.Controllers
             {
                 CustomUser cus = new CustomUser();
                 cus.UserId = user.UserId;
-                cus.UserName = localUser.UserName.Length > 0 ? localUser.UserName : "";
+                cus.UserName = localUser.UserName is null ? "" : localUser.UserName;
                 cus.Money = 0;
                 _gateWayUserService.InsertNewUser(cus);
                 return Json(new ResponseModel()
