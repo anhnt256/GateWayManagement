@@ -4,6 +4,7 @@ import {
   GET_RESULT_SUCCESS,
   CHECK_ROUND_SUCCESS,
   CALC_ROUND_SUCCESS,
+  SEARCH_CODE_SUCCESS,
 } from '../../../../../../../constants/ActionTypes';
 import { userSignOut } from '../../../../../../../general/Auth/actions';
 
@@ -47,10 +48,26 @@ export function useCode(code = '') {
   return async (dispatch, getState) => {
     const gameId = getState().game.gameId;
     const localAddress = await findLocalIp();
-    const response = await request.post('api/game/useCode', { ip: localAddress[0], code });
+    const response = await request.post('api/game/useCode', { ip: localAddress[0], code, gameId });
 
     if (response.data.responseCode === 0) {
       getResult(gameId);
+    }
+    return 0;
+  };
+}
+
+export function searchCode(code = '') {
+  return async (dispatch, getState) => {
+    const gameId = getState().game.gameId;
+    const localAddress = await findLocalIp();
+    const response = await request.post('api/game/searchCode', { ip: localAddress[0], code, gameId });
+
+    if (response.data.responseCode === 0) {
+      dispatch({
+        type: SEARCH_CODE_SUCCESS,
+        response: response.data.reply,
+      });
     }
     return 0;
   };

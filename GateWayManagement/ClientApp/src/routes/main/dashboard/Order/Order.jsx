@@ -1,612 +1,175 @@
-import React, { Component } from "react";
-import { Affix, Button, Card, Col, Divider, Row, Tabs } from "antd";
-import ProductItem from "./components/ProductItem/ProductItem";
-import TopUpTransaction from "../Profile/components/Transaction/components/TopUpTransaction/TopUpTransaction";
-
-const productData = [
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "Alarm Clock",
-    variant: "Gold ",
-    mrp: "$990 ",
-    price: "$699 ",
-    offer: "29 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 5,
-    description:
-      "Horo is a home grown brand with utmost emphasis on quality goods to users... "
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "Bizinto 1 Three Pin",
-    variant: "White",
-    mrp: "$490 ",
-    price: "$399 ",
-    offer: "29 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 4,
-    description:
-      "Bizinto is an indirectly manufacture of Power strip in Delhi and supplying..."
-  },
-  {
-    thumb: "https://via.placeholder.com/600x338",
-    name: "Samons Flameless",
-    variant: "Black",
-    mrp: "$49 ",
-    price: "$39 ",
-    offer: "30 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 3.3,
-    description:
-      "Now light your cigarette buds with ease by using this USB Rechargeable..."
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "Sony MDR-ZX110",
-    variant: "White",
-    mrp: "$29 ",
-    price: "$15 ",
-    offer: "49 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 3.5,
-    description:
-      "Experience great sound quality with weight and foldable headphones..."
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "iPhone 7",
-    variant: "Black,500Htz",
-    mrp: "$400 ",
-    price: "$359 ",
-    offer: "49 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 4.2,
-    description:
-      "Bluetooth speaker, Karaoke singing, Car Stereo, instrument recording etc... •"
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "Stonx v2.1",
-    variant: "Black",
-    mrp: "$29 ",
-    price: "$15 ",
-    offer: "49 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 3.1,
-    description: "1 Bluetooth Dongle, 1 Aux Cable, 1 Usb Cable, 1 Manual..."
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "T-Shirts",
-    variant: "White",
-    mrp: "$10 ",
-    price: "$5 ",
-    offer: "50 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 3.1,
-    description: "1 Bluetooth Dongle, 1 Aux Cable, 1 Usb Cable, 1 Manual..."
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "Led",
-    variant: "Gold ",
-    mrp: "$10 ",
-    price: "$20 ",
-    offer: "50%",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 5,
-    description:
-      "Horo is a home grown brand with emphasis on quality goods to our users... "
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "football",
-    variant: "Black",
-    mrp: "$490 ",
-    price: "$399 ",
-    offer: "29 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 4,
-    description:
-      "Bizinto is an indirectly manufacture of Power strip in Delhi and supplying in all over india..."
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "wach",
-    variant: "Black",
-    mrp: "$49 ",
-    price: "$39 ",
-    offer: "30 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 3.3,
-    description:
-      "Now light your cigarette buds with ease by using this USB Rechargeable Electronic Flameless Lighter."
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "fan",
-    variant: "White,full speed",
-    mrp: "$29 ",
-    price: "$15 ",
-    offer: "49 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 3.5,
-    description:
-      "Experience great sound quality with these light weight and fordable headphones."
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "Padraig Q7 Handheld",
-    variant: "Black,500Htz",
-    mrp: "$56 ",
-    price: "$35 ",
-    offer: "49 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 4.2,
-    description:
-      "Bluetooth speaker, Karaoke singing, Car Stereo, instrument recording, interviews, podcasting, etc. •"
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "speaker Car Bluetooth ",
-    variant: "Black",
-    mrp: "$29 ",
-    price: "$15 ",
-    offer: "49 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 3.1,
-    description: "1 Bluetooth Dongle, 1 Aux Cable, 1 Usb Cable, 1 Manual"
-  },
-  {
-    thumb: "https://via.placeholder.com/600x450",
-    name: "Running Shoes",
-    variant: "Black",
-    mrp: "$10 ",
-    price: "$5 ",
-    offer: "50 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 3.1,
-    description: "1 Bluetooth Dongle, 1 Aux Cable, 1 Usb Cable, 1 Manual"
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "Alarm Clock",
-    variant: "Gold ",
-    mrp: "$990 ",
-    price: "$699 ",
-    offer: "29 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 5,
-    description:
-      "Horo is a home grown brand with utmost emphasis on quality goods "
-  },
-  {
-    thumb: "https://via.placeholder.com/600x400",
-    name: "Bizinto 1 Three Pin",
-    variant: "White",
-    mrp: "$490 ",
-    price: "$399 ",
-    offer: "29 %",
-    reviews: [
-      {
-        rating: 5,
-        count: 3
-      },
-      {
-        rating: 4,
-        count: 5
-      },
-      {
-        rating: 3,
-        count: 5
-      },
-      {
-        rating: 2,
-        count: 0
-      },
-      {
-        rating: 1,
-        count: 3
-      }
-    ],
-    rating: 4,
-    description:
-      "Bizinto is an indirectly manufacture of Power strip in Delhi and supplying..."
-  }
-];
+import React, { Component } from 'react';
+import { Affix, Button, Card, Col, Divider, Row, Tabs, Modal } from 'antd';
+import ProductItem from './components/ProductItem/ProductItem';
+import TopUpTransaction from '../Profile/components/Transaction/components/TopUpTransaction/TopUpTransaction';
+import { getListEvent } from '../Event/actions';
+import { connect } from 'react-redux';
+import { getListRecipe } from './actions';
+import { EnumRecipeGroup } from '../../../../constants/enum';
+import { formatCurrency, getDescription } from '../../../../util/utils';
+import CartItem from './components/CartItem/CartItem';
 
 const TabPane = Tabs.TabPane;
 
 class Order extends Component {
+  state = {
+    cart: {
+      dishes: [],
+      totalTopup: 0,
+      totalOrder: 0,
+    },
+  };
+  componentDidMount() {
+    const { getListRecipeConnect } = this.props;
+    getListRecipeConnect();
+  }
+
+  handleOrderClick = (dish) => {
+    const { cart } = this.state;
+    const cloneCart = { ...cart };
+    const { userReducer } = this.props;
+    const { money } = userReducer || {};
+    const { totalOrder, totalTopup } = cart;
+    const { sell_price, id, recipe_group } = dish;
+    if (recipe_group !== EnumRecipeGroup.WALLET.id) {
+      const newTotal = totalOrder + sell_price * 1;
+      if (money < newTotal) {
+        Modal.info({
+          title: 'Thông báo',
+          content: 'Số tiền trong ví không đủ để sử dụng. Vui lòng nạp thêm.',
+        });
+        return;
+      }
+      cloneCart.totalOrder = newTotal;
+    } else {
+      cloneCart.totalTopup = totalTopup + sell_price * 1;
+    }
+    const { dishes } = cloneCart;
+    if (dishes && dishes.length > 0) {
+      const index = dishes.findIndex((x) => x.dish.id === id);
+      if (index !== -1) {
+        dishes[index].quantity += 1;
+      } else {
+        cloneCart.dishes.push({
+          dish,
+          quantity: 1,
+          note: '',
+        });
+      }
+    } else {
+      cloneCart.dishes.push({
+        dish,
+        quantity: 1,
+        note: '',
+      });
+    }
+
+    this.setState({
+      cart: cloneCart,
+    });
+  };
+
+  handleQuantityAdd = (id) => {
+    const { cart } = this.state;
+    const { totalOrder, totalTopup } = cart;
+    const cloneCart = { ...cart };
+    const { dishes } = cloneCart || {};
+    const index = dishes.findIndex((x) => x.dish.id === id);
+    const { dish } = dishes[index];
+    const { sell_price, recipe_group } = dish || {};
+    if (recipe_group !== EnumRecipeGroup.WALLET.id) {
+      cloneCart.totalOrder = totalOrder + sell_price * 1;
+    } else {
+      cloneCart.totalTopup = totalTopup + sell_price * 1;
+    }
+    dishes[index].quantity = dishes[index].quantity + 1;
+    this.setState({
+      cart: cloneCart,
+    });
+  };
+
+  handleQuantityMinus = (id) => {
+    const { cart } = this.state;
+    const { totalOrder, totalTopup } = cart;
+    const cloneCart = { ...cart };
+    const { dishes } = cloneCart || {};
+    const index = dishes.findIndex((x) => x.dish.id === id);
+    const { dish } = dishes[index];
+    const { sell_price, recipe_group } = dish || {};
+    dishes[index].quantity = dishes[index].quantity - 1;
+    if (dishes[index].quantity === 0) {
+      dishes.splice(index, 1);
+    }
+    if (recipe_group !== EnumRecipeGroup.WALLET.id) {
+      cloneCart.totalOrder = totalOrder - sell_price * 1;
+    } else {
+      cloneCart.totalTopup = totalTopup - sell_price * 1;
+    }
+    this.setState({
+      cart: cloneCart,
+    });
+  };
+
+  handleSubmit = () => {
+    const { cart } = this.state;
+    console.log(cart);
+  };
+
   render() {
+    const { cart } = this.state;
+    const { dishes, totalTopup, totalOrder } = cart || {};
+    const { recipeReducer } = this.props;
+    const { recipes } = recipeReducer || {};
     return (
       <Row>
-        <Col xl={18} md={18} sm={18}>
-          <Tabs defaultActiveKey="1">
-            <TabPane tab="Nạp giờ" key="1">
-              <Row>
-                {productData.map((product, index) => (
-                  <Col key={index} xl={8} md={8}>
-                    <ProductItem key={index} grid product={product} />
-                  </Col>
-                ))}
-              </Row>
-            </TabPane>
-            <TabPane tab="Đồ ăn" key="2">
-              <Row>
-                {productData.map((product, index) => (
-                  <Col key={index} xl={8} md={8}>
-                    <ProductItem key={index} grid product={product} />
-                  </Col>
-                ))}
-              </Row>
-            </TabPane>
-            <TabPane tab="Nước uống" key="3">
-              <Row>
-                {productData.map((product, index) => (
-                  <Col key={index} xl={8} md={8}>
-                    <ProductItem key={index} grid product={product} />
-                  </Col>
-                ))}
-              </Row>
-            </TabPane>
-            <TabPane tab="Thẻ" key="4">
-              <Row>
-                {productData.map((product, index) => (
-                  <Col key={index} xl={8} md={8}>
-                    <ProductItem key={index} grid product={product} />
-                  </Col>
-                ))}
-              </Row>
-            </TabPane>
-            <TabPane tab="Combo" key="5">
-              <Row>
-                {productData.map((product, index) => (
-                  <Col key={index} xl={8} md={8}>
-                    <ProductItem key={index} grid product={product} />
-                  </Col>
-                ))}
-              </Row>
-            </TabPane>
+        <Col xl={16} md={16} sm={16}>
+          <Tabs defaultActiveKey={EnumRecipeGroup.HOURS.id}>
+            {recipes.map((recipeGroup) => {
+              const { recipe_group, recipes } = recipeGroup;
+              const name = getDescription(recipe_group, EnumRecipeGroup);
+              return (
+                <TabPane tab={name} key={recipe_group}>
+                  <Row>
+                    {recipes.map((recipe, index) => (
+                      <Col key={index} xl={8} md={8}>
+                        <ProductItem key={index} grid recipe={recipe} onOrderClick={this.handleOrderClick} />
+                      </Col>
+                    ))}
+                  </Row>
+                </TabPane>
+              );
+            })}
           </Tabs>
         </Col>
-        <Col xl={6} md={6} sm={6}>
+        <Col xl={8} md={8} sm={8}>
           <Affix offsetTop={80}>
             <Card title="Giỏ hàng">
-              {productData.map((product, index) => {
-                if (index < 5) {
-                  return (
-                    <Row>
-                      <Col span={16}>
-                        <span>1 - Vịt sốt tiêu xanh</span>
-                      </Col>
-                      <Col span={8}>20,000</Col>
-                    </Row>
-                  );
-                }
+              {dishes.map((item, index) => {
+                const { dish, quantity } = item;
+                const { id } = dish || {};
+                return (
+                  <CartItem
+                    key={index}
+                    dish={dish}
+                    quantity={quantity}
+                    onQuantityAdd={() => this.handleQuantityAdd(id)}
+                    onQuantityMinus={() => this.handleQuantityMinus(id)}
+                  />
+                );
               })}
-              <Divider />
-              <Row>
-                <Col span={16}>Tổng cộng:</Col>
-                <Col span={8}>20,000</Col>
-              </Row>
-              <Divider />
-              <Button style={{ float: "right" }}>Thanh toán</Button>
+              {dishes && dishes.length > 0 && (
+                <React.Fragment>
+                  <Divider />
+                  <Row>
+                    <Col span={14}>Tổng cộng:</Col>
+                    <Col span={10}>{formatCurrency(totalTopup + totalOrder)}</Col>
+                  </Row>
+                  <Divider />
+                  <Button onClick={this.handleSubmit} style={{ float: 'right' }}>
+                    Gửi yêu cầu
+                  </Button>
+                </React.Fragment>
+              )}
             </Card>
           </Affix>
         </Col>
@@ -614,4 +177,14 @@ class Order extends Component {
     );
   }
 }
-export default Order;
+
+const mapStateToProps = (state) => ({
+  recipeReducer: state.recipe,
+  userReducer: state.auth,
+});
+
+const mapDispatchToProps = {
+  getListRecipeConnect: getListRecipe,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Order);

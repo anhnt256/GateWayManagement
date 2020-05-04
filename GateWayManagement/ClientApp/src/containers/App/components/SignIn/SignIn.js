@@ -9,11 +9,12 @@ import {
   userGithubSignIn,
   userGoogleSignIn,
   userTwitterSignIn,
-  userSignIn, checkUser,
+  userSignIn,
+  checkUser,
 } from '../../../../general/Auth/actions';
 import IntlMessages from 'util/IntlMessages';
 import CircularProgress from '../../../../components/CircularProgress/index';
-import {Redirect} from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
 class SignIn extends React.Component {
   state = {

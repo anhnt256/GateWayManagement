@@ -28,6 +28,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\ChatRoomController.cs" />
     <Compile Remove="Controllers\MessageController.cs" />
+    <Compile Remove="Models\GateWay\Order\OrderContext.cs" />
     <Compile Remove="Services\ChatRoomService.cs" />
     <Compile Remove="Services\IChatRoomService.cs" />
     <Compile Remove="Services\IMessageService.cs" />

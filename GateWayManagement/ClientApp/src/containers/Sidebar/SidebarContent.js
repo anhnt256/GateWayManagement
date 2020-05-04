@@ -59,10 +59,40 @@ class SidebarContent extends Component {
               theme={themeType === THEME_TYPE_LITE ? "lite" : "dark"}
               mode="inline"
             >
+              <Menu.Item key="main/dashboard/general">
+                <Link to="/main/dashboard/general">
+                  <i className="icon icon-crypto" />
+                  <IntlMessages id="sidebar.main.general" />
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="main/dashboard/profile">
+                <Link to="/main/dashboard/profile">
+                  <i className="icon icon-crypto" />
+                  <IntlMessages id="sidebar.main.profile" />
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="main/dashboard/order">
+                <Link to="/main/dashboard/order">
+                  <i className="icon icon-crypto" />
+                  <IntlMessages id="sidebar.main.order" />
+                </Link>
+              </Menu.Item>
               <Menu.Item key="main/dashboard/event">
                 <Link to="/main/dashboard/event">
                   <i className="icon icon-crypto" />
                   <IntlMessages id="sidebar.main.event" />
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="main/dashboard/exchange">
+                <Link to="/main/dashboard/exchange">
+                  <i className="icon icon-crypto" />
+                  <IntlMessages id="sidebar.main.exchange" />
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="main/dashboard/promotion">
+                <Link to="/main/dashboard/promotion">
+                  <i className="icon icon-crypto" />
+                  <IntlMessages id="sidebar.main.promotion" />
                 </Link>
               </Menu.Item>
             </Menu>

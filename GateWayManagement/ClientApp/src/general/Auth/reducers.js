@@ -18,8 +18,9 @@ const INIT_STATE = {
   alertMessage: '',
   showMessage: false,
   initURL: '',
-  authUser: parseInt(localStorage.getItem('user_id')),
+  authUser: null,
   userName: null,
+  money: 0,
 };
 
 
@@ -27,12 +28,13 @@ export default (state = INIT_STATE, action) => {
   switch (action.type) {
     case SIGNUP_USER_SUCCESS: {
       const { payload } = action;
-      const { userId, userName } = payload ||{};
+      const { userId, userName, money } = payload ||{};
       return {
         ...state,
         loader: false,
         authUser: userId,
         userName,
+        money,
       }
     }
     case SIGNIN_USER_SUCCESS: {
@@ -56,7 +58,8 @@ export default (state = INIT_STATE, action) => {
         ...state,
         authUser: null,
         initURL: '/',
-        loader: false
+        loader: false,
+        money: 0,
       }
     }
 

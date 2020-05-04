@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Avatar, Popover} from "antd";
-import {userSignOut} from "../../general/Auth/actions";
 
 class UserInfo extends Component {
 
@@ -10,8 +9,6 @@ class UserInfo extends Component {
       <ul className="gx-user-popover">
         <li>My Account</li>
         <li>Connections</li>
-        <li onClick={() => this.props.userSignOut()}>Logout
-        </li>
       </ul>
     );
 
@@ -26,4 +23,4 @@ class UserInfo extends Component {
   }
 }
 
-export default connect(null, {userSignOut})(UserInfo);
+export default UserInfo;

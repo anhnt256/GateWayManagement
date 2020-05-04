@@ -70,57 +70,57 @@ namespace GateWayManagement.Models.GateWay.Order
             return param;
         }
 
-        public void SetOrder(Order order)
-        {
-            using (MySqlConnection conn = GetConnection())
-            {
-                string sql = "";
-                if (order.id > 0)
-                {
-                    sql = $"select * from user_order where id = {order.id}";
-                    conn.Open();
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+        //public void SetOrder(Order order)
+        //{
+        //    using (MySqlConnection conn = GetConnection())
+        //    {
+        //        string sql = "";
+        //        if (order.id > 0)
+        //        {
+        //            sql = $"select * from user_order where id = {order.id}";
+        //            conn.Open();
+        //            MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            sql = $"Update user_order SET status = {order.status} where id = {order.id}";
-                        }
-                        else
-                        {
-                            if (order.type == (int)MessageType.Wallet || order.type == (int)MessageType.Money)
-                            {
-                                sql = $"Insert into user_order (user_id, money, type, status, created_date) values ({order.user_id},{order.money}, {order.type}, {order.status}, '{order.created_date}')";
-                            }
-                            else if (order.type == (int)MessageType.Food)
-                            {
-                                sql = $"Insert into user_order (user_id, dish_id, quantity, money, type, note, status, created_date) values (" +
-                                    $"{order.user_id},{order.dish_id},{order.quantity},{order.money}, {order.type}, '{order.note}', {order.status}, '{order.created_date}')";
-                            }
-                        }
-                        conn.Close();
-                    }
-                }
-                else {
-                    if (order.type == (int)MessageType.Wallet || order.type == (int)MessageType.Money)
-                    {
-                        sql = $"Insert into user_order (user_id, money, type, status, created_date) values ({order.user_id},{order.money}, {order.type}, {order.status}, '{order.created_date}')";
-                    }
-                    else if (order.type == (int)MessageType.Food)
-                    {
-                        sql = $"Insert into user_order (user_id, dish_id, quantity, money, type, note, status, created_date) values (" +
-                            $"{order.user_id},{order.dish_id},{order.quantity},{order.money}, {order.type}, '{order.note}', {order.status}, '{order.created_date}')";
-                    }
-                }
+        //            using (var reader = cmd.ExecuteReader())
+        //            {
+        //                if (reader.HasRows)
+        //                {
+        //                    sql = $"Update user_order SET status = {order.status} where id = {order.id}";
+        //                }
+        //                else
+        //                {
+        //                    if (order.type == (int)MessageType.Wallet || order.type == (int)MessageType.Money)
+        //                    {
+        //                        sql = $"Insert into user_order (user_id, money, type, status, created_date) values ({order.user_id},{order.money}, {order.type}, {order.status}, '{order.created_date}')";
+        //                    }
+        //                    else if (order.type == (int)MessageType.Food)
+        //                    {
+        //                        sql = $"Insert into user_order (user_id, dish_id, quantity, money, type, note, status, created_date) values (" +
+        //                            $"{order.user_id},{order.dish_id},{order.quantity},{order.money}, {order.type}, '{order.note}', {order.status}, '{order.created_date}')";
+        //                    }
+        //                }
+        //                conn.Close();
+        //            }
+        //        }
+        //        else {
+        //            if (order.type == (int)MessageType.Wallet || order.type == (int)MessageType.Money)
+        //            {
+        //                sql = $"Insert into user_order (user_id, money, type, status, created_date) values ({order.user_id},{order.money}, {order.type}, {order.status}, '{order.created_date}')";
+        //            }
+        //            else if (order.type == (int)MessageType.Food)
+        //            {
+        //                sql = $"Insert into user_order (user_id, dish_id, quantity, money, type, note, status, created_date) values (" +
+        //                    $"{order.user_id},{order.dish_id},{order.quantity},{order.money}, {order.type}, '{order.note}', {order.status}, '{order.created_date}')";
+        //            }
+        //        }
 
-                using (MySqlCommand command = new MySqlCommand(sql, conn))
-                {
-                    conn.Open();
-                    command.ExecuteNonQuery();
-                    conn.Close();
-                }
-            }
-        }
+        //        using (MySqlCommand command = new MySqlCommand(sql, conn))
+        //        {
+        //            conn.Open();
+        //            command.ExecuteNonQuery();
+        //            conn.Close();
+        //        }
+        //    }
+        //}
     }
 }

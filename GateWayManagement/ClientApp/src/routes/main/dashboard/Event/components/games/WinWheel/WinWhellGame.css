@@ -94,19 +94,6 @@ img {
   text-align: center !important;
 }
 
-.ant-drawer-header {
-  text-align: center !important;
-  font-weight: bold;
-}
-
-.ant-drawer-title {
-  font-size: 20px;
-}
-
-.ant-drawer-right .ant-drawer-content-wrapper {
-  width: 600px !important;
-}
-
 .btn-secondary {
   color: #fff !important;
   background-color: #757575;

@@ -9,5 +9,6 @@ namespace GateWayManagement.Services.CSM
     {
         Task<CustomUser> SelectUserFromId(int userId);
         long InsertNewUser(CustomUser user);
+        bool UpdateNewUser(CustomUser user);
     }
 }

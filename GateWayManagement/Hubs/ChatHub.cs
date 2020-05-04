@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 using System;
-using GateWayManagement.Models.Services;
 using GateWayManagement.Models;
 using GateWayManagement.Models.GateWay.Notification;
 using Microsoft.AspNetCore.Http;
@@ -11,7 +10,6 @@ namespace ChatAppWithSignalR.Hubs
 {
     public class ChatHub : Hub
     {
-        private readonly IOrderService _orderService;
         public int UsersOnline;
 
 

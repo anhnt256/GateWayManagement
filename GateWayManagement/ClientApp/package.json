@@ -12,6 +12,7 @@
     "gsap": "^2.1.2",
     "install": "^0.12.2",
     "instantsearch.css": "^7.1.0",
+    "js-cookie": "^2.2.1",
     "less": "2.7.3",
     "less-loader": "^4.1.0",
     "less-vars-to-js": "^1.2.1",
@@ -58,6 +59,7 @@
     "rheostat": "^3.0.1",
     "slick-carousel": "^1.8.1",
     "url-search-params": "^1.1.0",
+    "utf8": "^3.0.0",
     "victory": "^0.27.2"
   },
   "scripts": {
@@ -68,11 +70,11 @@
   "devDependencies": {
     "add": "^2.0.6",
     "babel-plugin-import": "^1.8.0",
-    "eslint-config-prettier": "^3.1.0",
     "customize-cra": "^0.2.10",
+    "eslint-config-prettier": "^3.1.0",
+    "prettier": "^1.14.3",
     "react-app-rewired": "^2.0.2",
-    "yarn": "^1.7.0",
-    "prettier": "^1.14.3"
+    "yarn": "^1.7.0"
   },
   "browserslist": [
     ">0.2%",

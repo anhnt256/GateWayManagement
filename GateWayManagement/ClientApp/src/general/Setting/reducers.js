@@ -16,15 +16,13 @@ const initialSettings = {
   layoutType: LAYOUT_TYPE_FULL,
   themeType: THEME_TYPE_SEMI_DARK,
   colorSelection: THEME_COLOR_SELECTION_PRESET,
-
   pathname: '',
-  width: window.innerWidth,
   isDirectionRTL: false,
   locale: {
-    languageId: 'english',
-    locale: 'en',
-    name: 'English',
-    icon: 'us'
+    languageId: 'vietnam',
+    locale: 'vi',
+    name: 'Tiếng Việt',
+    icon: 'vn'
   }
 };
 
@@ -40,11 +38,6 @@ const settings = (state = initialSettings, action) => {
       return {
         ...state,
         navCollapsed: action.navCollapsed
-      };
-    case WINDOW_WIDTH:
-      return {
-        ...state,
-        width: action.width,
       };
     case THEME_TYPE:
       return {
@@ -66,13 +59,6 @@ const settings = (state = initialSettings, action) => {
       return {
         ...state,
         layoutType: action.layoutType
-      };
-
-    case SWITCH_LANGUAGE:
-      return {
-        ...state,
-        locale: action.payload,
-
       };
     default:
       return state;

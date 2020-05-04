@@ -32,5 +32,13 @@ namespace GateWayManagement.Services.CSM
                 return conn.Insert(user);
             }
         }
+
+        public bool UpdateNewUser(CustomUser user)
+        {
+            using (var conn = GetOpenConnection())
+            {
+                return conn.Update(user);
+            }
+        }
     }
 }
