@@ -95,6 +95,12 @@ class SidebarContent extends Component {
                   <IntlMessages id="sidebar.main.promotion" />
                 </Link>
               </Menu.Item>
+              <Menu.Item key="main/dashboard/order-processing">
+                <Link to="/main/dashboard/order-processing">
+                  <i className="icon icon-crypto" />
+                  <IntlMessages id="sidebar.main.processing" />
+                </Link>
+              </Menu.Item>
             </Menu>
           </CustomScrollbars>
         </div>

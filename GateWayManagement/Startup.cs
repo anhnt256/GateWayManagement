@@ -70,6 +70,7 @@ namespace GateWayManagement
       services.AddTransient<IGateWayEventResult>(x => new GateWayEventResult(Configuration.GetConnectionString("GateWay")));
       services.AddTransient<IGateWayRecipeService>(x => new GateWayRecipeService(Configuration.GetConnectionString("GateWay")));
       services.AddTransient<IGateWayOrderService>(x => new GateWayOrderService(Configuration.GetConnectionString("GateWay")));
+      services.AddTransient<IGateWayOrderDetailService>(x => new GateWayOrderDetailService(Configuration.GetConnectionString("GateWay")));
 
 
       services.Add(new ServiceDescriptor(typeof(ClientSysContext), new ClientSysContext(Configuration.GetConnectionString("Default"))));
@@ -113,7 +114,6 @@ namespace GateWayManagement
 
         if (env.IsDevelopment())
         {
-          spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
           spa.UseReactDevelopmentServer(npmScript: "start");
         }
       });

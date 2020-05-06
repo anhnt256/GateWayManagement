@@ -9,10 +9,12 @@ namespace GateWayManagement.Controllers
   public class OrderController : Controller
   {
     private IGateWayOrderService _orderService;
+    private IGateWayOrderDetailService _orderDetailService;
 
-    public OrderController(IGateWayOrderService orderService)
+    public OrderController(IGateWayOrderService orderService, IGateWayOrderDetailService orderDetailService)
     {
       _orderService = orderService;
+      _orderDetailService = orderDetailService;
     }
 
     [HttpGet("[action]")]
@@ -22,6 +24,16 @@ namespace GateWayManagement.Controllers
       {
         ResponseCode = ResponseCode.Success,
         Reply = _orderService.GetAll()
+      });
+    }
+
+    [HttpGet("[action]")]
+    public JsonResult GetAllOrderDetail(int order_id)
+    {
+      return Json(new ResponseModel()
+      {
+        ResponseCode = ResponseCode.Success,
+        Reply = _orderDetailService.GetAll(order_id)
       });
     }
   }

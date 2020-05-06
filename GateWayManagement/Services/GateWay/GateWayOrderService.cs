@@ -21,7 +21,11 @@ namespace GateWayManagement.Services.CSM
     {
       using (var conn = GetOpenConnection())
       {
-        var sql = "Select * from orders order by created_date DESC";
+        var sql = "select o.*, o.id as `key`, u.username, u1.username as processer_name " +
+          "from orders o " +
+          "inner join user u on o.user_id = u.userId " +
+          "inner join user u1 on o.process_by = u1.userId where o.status in (2,3) " +
+          "order by created_date DESC";
         return conn.Query<Order>(sql).ToList();
       }
     }

@@ -29,7 +29,6 @@ namespace GateWayManagement.Models
 
   public enum OrderStatus
   {
-    All = -1, // Tất cả
     Cancel = 1, // Hủy đơn hàng
     Received = 2, // Mới nhận đơn
     Processing = 3, // Đơn hàng đang được xử lý
